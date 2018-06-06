@@ -18,7 +18,7 @@ COOKIE=''
 for cur_since in range(SINCE, UNTIL, INTERVAL):
     print "Starting from "+str(time.gmtime(cur_since))
     conn = HTTPSConnection("graph.facebook.com")
-    conn.request("GET", '/'+USER_ID+'/posts?access_token='+TOKEN+'&since='+str(cur_since)+'&until='+str(cur_since+INTERVAL))
+    conn.request("GET", '/v3.0/me/posts?access_token='+TOKEN+'&since='+str(cur_since)+'&until='+str(cur_since+INTERVAL))
     res = conn.getresponse()
     if res.status != 200:
         print "Get postids failed"
